@@ -1,5 +1,6 @@
 package ood.designPattern;
 
+
 public class User {
     private final String firstName;
     private final String lastName;
@@ -28,6 +29,16 @@ public class User {
     }
 
     // 2^8 combinations.... OMG
-    // One solution is to use setter & getter
+
+    public static void main(String[] args) {
+        User user = new User("Hanmei", "Tang");
+
+        // One solution is to use setter & getter
+        // Some Problems:
+        // 1. you cannot determine when the construction is completed
+        // 2. what if we do not want to expose setters for some data fields?
+    }
+
+
 }
 

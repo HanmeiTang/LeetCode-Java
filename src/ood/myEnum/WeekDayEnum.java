@@ -1,4 +1,4 @@
-package ood;
+package ood.myEnum;
 
 import java.util.Random;
 

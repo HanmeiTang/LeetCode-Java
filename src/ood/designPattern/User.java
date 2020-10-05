@@ -2,12 +2,12 @@ package ood.designPattern;
 
 
 public class User {
-    private final String firstName;
-    private final String lastName;
+    private String firstName;
+    private String lastName;
     private int age;
     private String phone;
     private String address;
-
+    public User() {}
     public User(String firstName, String lastName) {
         this(firstName, lastName, 0);
     }

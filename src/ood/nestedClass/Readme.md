@@ -1,5 +1,14 @@
 # Nested class
 
+```text
+Top level class
+    Static nested class
+    Non-static nested class (inner class)
+    Local class
+        Anonymous class (Comparators, etc. <- Lambda)
+
+```
+
 ## Definition
 A `nested class` is any class whose declaration occurs within the body of another class or interface. A `top level class` is a class that is not a nested class.
 

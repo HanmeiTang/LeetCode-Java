@@ -23,7 +23,7 @@ public class GoodUser {
         private String phone;
         private String address;
 
-
+        public GoodUserBuilder() {}
         public GoodUserBuilder firstName(String firstName) {
             this.firstName = firstName;
             return this;
@@ -75,7 +75,8 @@ public class GoodUser {
                 .firstName("Hanmei")
                 .phone("8884454455")
                 .age(1000)
-                .address("hello world, CA 92222").build();
+                .build();
+
 
         System.out.println(user.address);
     }

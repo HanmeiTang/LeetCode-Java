@@ -31,10 +31,12 @@ class MidTermMaxPath {
 
     public static void main(String[] args) {
         MidTermMaxPath mid = new MidTermMaxPath();
-        TreeNode root = new TreeNode(0);
-        root.left = new TreeNode(1);
+        TreeNode root = new TreeNode(3);
+        root.left = new TreeNode(-1);
         root.right = new TreeNode(2);
         root.left.left = new TreeNode(-4);
+        root.right.left = new TreeNode(1);
+        root.right.right = new TreeNode(1);
         int result = mid.getMaxPath(root);
         System.out.println(result);
     }

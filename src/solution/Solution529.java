@@ -1,4 +1,4 @@
-class Solution {
+class Solution529 {
     public static double divide() {
         int a = 3;
         int b = 7;

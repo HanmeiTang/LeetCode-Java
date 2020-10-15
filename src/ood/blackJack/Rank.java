@@ -1,4 +1,4 @@
-package ood.blackjack;
+package ood.blackJack;
 
 // FaceValue
 public enum Rank {

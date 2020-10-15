@@ -1,4 +1,4 @@
-package ood.blackjack;
+package ood.blackJack;
 
 public class Card {
     final Rank rank;

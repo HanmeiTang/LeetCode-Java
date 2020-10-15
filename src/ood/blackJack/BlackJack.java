@@ -1,4 +1,4 @@
-package ood.blackjack;
+package ood.blackJack;
 
 // 1. how to play
 // 2. user case - support what kind of rules

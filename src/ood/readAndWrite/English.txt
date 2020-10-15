@@ -1,0 +1,8 @@
+Are you happy?
+Are you lucky today?
+Do you have a good sleep?
+
+
+
+end
+

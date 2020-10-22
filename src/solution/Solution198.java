@@ -40,5 +40,8 @@ public class Solution198 {
         Solution198 s = new Solution198();
         int result = s.largest(new int[]{2, 1, 5, 6, 2, 3});
         System.out.println(result);
+        System.out.println(new String(new char[]{'a', 'b', 'c'}, 0, 2));
     }
 }
+
+

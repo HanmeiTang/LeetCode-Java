@@ -24,9 +24,9 @@ class MidTermMaxPath {
 
         leftSum = leftSum < 0 ? 0 : leftSum;
         rightSum = rightSum < 0 ? 0 : rightSum;
-        max[0] = Math.max(max[0], leftSum + rightSum + root.val);
+        max[0] = Math.max(max[0], leftSum + rightSum + root.key);
 
-        return Math.max(leftSum, rightSum) + root.val;
+        return Math.max(leftSum, rightSum) + root.key;
     }
 
     public static void main(String[] args) {
@@ -42,16 +42,6 @@ class MidTermMaxPath {
     }
 }
 
-
-class TreeNode {
-    public TreeNode left;
-    public TreeNode right;
-    public int val;
-
-    public TreeNode(int val) {
-        this.val = val;
-    }
-}
 
 // Analysis, N is number of the given tree
 // Time C = O(N)

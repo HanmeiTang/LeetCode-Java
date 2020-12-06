@@ -1,5 +1,6 @@
 package ood.hashMap;
 
+import java.util.*;
 // 1. organization
 // key, val <Integer, Integer>
 // Node <Integer, Integer>
@@ -49,6 +50,8 @@ package ood.hashMap;
 // implementation
 
 
+import java.util.HashMap;
+
 public class hashMap<K, V> {
     private final float LOAD_FACTOR = 0.75f;
     private static final int DEFAULT_CAP = 10;
@@ -64,8 +67,10 @@ public class hashMap<K, V> {
     public hashMap(int cap) {
         capacity = cap;
         size = 0;
-        nodeList = new Entry[capacity]; // todo: not type safe
-
+        // java doesn't allow generic array
+        // so create a non-generic array
+        // then cast type
+        nodeList = (Entry<K, V>[]) new Entry[capacity];
     }
 
     /**
@@ -233,6 +238,14 @@ public class hashMap<K, V> {
         return false;
     }
 
+    public void clear() {
+        Arrays.fill(nodeList, null);
+    }
+
+    private boolean equalsKey(K key1, K key2) {
+        return key1 == key2 || (key1 != null && key1.equals(key2));
+    }
+
     private void rehash() {
         this.capacity *= 2;
         Entry<K, V>[] newList = new Entry[capacity];
@@ -252,9 +265,10 @@ public class hashMap<K, V> {
      * @return index of the bucket
      */
     private int getIndex(K key) {
-        int hashCode = key.hashCode();
+        int hashCode = Math.abs(key.hashCode());
         return hashCode % capacity;
     }
+
 
     static class Entry<K, V> {
         private int size;
@@ -364,7 +378,6 @@ public class hashMap<K, V> {
                 }
                 cur = cur.next;
             }
-
             return null;
         }
     }

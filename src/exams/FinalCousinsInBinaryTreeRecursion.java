@@ -1,6 +1,6 @@
 package exams;
 
-public class FinalCousinsInBinaryTree {
+public class FinalCousinsInBinaryTreeRecursion {
     public boolean areCousins(TreeNode root, TreeNode one, TreeNode two) {
         if (root == null || one == null || two == null) {
             return false;
@@ -53,8 +53,14 @@ public class FinalCousinsInBinaryTree {
         root.right.left = node5;
         root.right.right = node6;
 
-        FinalCousinsInBinaryTree fcit = new FinalCousinsInBinaryTree();
+        FinalCousinsInBinaryTreeRecursion fcit = new FinalCousinsInBinaryTreeRecursion();
         boolean output = fcit.areCousins(root, node5, node3);
+        System.out.println(output);
+
+        output = fcit.areCousins(root, node1, node3);
+        System.out.println(output);
+
+        output = fcit.areCousins(root, node1, node2);
         System.out.println(output);
     }
 

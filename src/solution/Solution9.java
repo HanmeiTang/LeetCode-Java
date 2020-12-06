@@ -1,3 +1,5 @@
+package solution;
+
 public class Solution9 {
     public int[] mergeSort(int[] array) {
         // check null array first.

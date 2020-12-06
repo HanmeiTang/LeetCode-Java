@@ -1,62 +1,77 @@
-// TODO: if target is empty
+package solution;
 
 public class Solution649 {
     public String replace(String input, String source, String target) {
-        if (input.equals("")) {
-            return "";
+        // corner cases
+        if (input == null || input.length() == 0) {
+            return input;
         }
 
-        // case 1: if source is longer or equal
-        if (source.length() >= target.length()) {
-            return replace1(input.toCharArray(), source, target);
-        } else {
-            // case 2: if source is shorter
-            return replace2(input.toCharArray(), source, target);
-        }
-
-    }
-
-    // case 1: if source is longer or equal
-    public String replace1(char[] input, String pattern, String replacement) {
-        // find the pattern first letter
-        // if matches to the end, replace it from the beginning and
-        int slow = 0;
-        int fast = 0;
-
-        // loop looking foward to find pattern
-        while (fast <= input.length) {
-            boolean match = true;
-            if (fast + pattern.length() <= input.length) {
-                for (int j = 0; j < pattern.length(); j++) {
-                    if (input[fast + j] != pattern.charAt(j)) {
-                        match = false;
-                        break;
-                    }
+        // scan once to identify output length
+        char[] array = input.toCharArray();
+        int count = 0;
+        int i = 0;
+        int j = source.length() - 1;
+        while (j < input.length()) {
+            if (match(array, i, j, source)) {
+                count++;
+                i = j + 1;
+                if (j + source.length() < input.length()) {
+                    j += source.length();
+                } else {
+                    break;
                 }
             } else {
-                match = false;
-            }
-
-
-            if (match) {
-                // copy replacement to [slow] slow++
-                for (int i = 0; i < replacement.length(); i++) {
-                    input[slow + i] = replacement.charAt(i);
-                }
-                slow += replacement.length();
-                fast += pattern.length();
-            } else {
-                input[slow++] = input[fast++];
+                i++;
+                j++;
             }
         }
-        return new String(input, 0, slow);
+
+        int outputLength = input.length() - (count * (source.length() - target.length()));
+        char[] result = new char[outputLength];
+
+        // replace
+        i = input.length() - 1;
+        j = outputLength - 1;
+        while (j >= 0) {
+            //System.out.println(new String(result));
+            //System.out.println(i);
+            if (i >= source.length() - 1 && match(array, i - source.length() + 1, i, source)) {
+                for (int k = target.length() - 1; k >= 0; k--) {
+                    //System.out.printf("%s %s\n", k, j);
+                    result[j--] = target.charAt(k);
+                }
+                i -= source.length();
+            } else {
+                result[j--] = array[i--];
+            }
+        }
+
+        // return
+        return new String(result);
     }
 
-    // case 2: if source is shorter
-    // 1. find occurrence
-    // 2. increase the length by #occurance
-    // 3. copy from the right side
-    public String replace2(char[] input, String source, String target) {
-        return "";
+
+    // helper function
+    private boolean match(char[] array, int left, int right, String source) {
+        // assume all input are valid
+        if ((right - left + 1) != source.length()) {
+            return false;
+        }
+
+        for (int n = 0; n <= right - left; n++) {
+            if (array[left + n] != source.charAt(n)) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    public static void main(String[] args) {
+        Solution649 s = new Solution649();
+        String a = s.replace("laicode", "code", "offer");
+        System.out.println(a);
+        System.out.println(s.match(new char[]{'a', 'p', 'p'}, 0, 2, "app"));
     }
 }
+

@@ -1,6 +1,5 @@
 package amazon;
 
-
 import java.io.*;
 import java.math.*;
 import java.security.*;
@@ -65,8 +64,8 @@ public class Interview1 {
 //Only one iteration is needed to get the final number of instances loaded in the end.
 // The worst case is to run exactly instances iterations. Within every iteration,
 // instances needs to be updated according to the average utilization status
-// (if/else blocks), which takes ~O(1) for each iteration. While no additi
-// onal space is used, so the space complexity is O(1).
+// (if/else blocks), which takes ~O(1) for each iteration. While no additional
+// space is used, so the space complexity is O(1).
 //
 //Corner cases considered:
 //

@@ -37,6 +37,6 @@ package ood.webCrawler;
 // get会比较慢一点，post很快
 
 // Finally, possible improvement, where are the possible bottlenecks
-
 public class FeedProduct {
+
 }

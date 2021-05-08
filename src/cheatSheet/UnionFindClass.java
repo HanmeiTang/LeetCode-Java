@@ -66,7 +66,7 @@ class UR {
 
     /*
     updating node parents
-     */
+    */
     public boolean union(int x, int y) {
         int xp = find(x);
         int yp = find(y);
@@ -81,10 +81,10 @@ class UR {
             parents[yp] = xp;
             rank[xp]++;
         }
-        System.out.printf("%d, %d\n", x, y);
-        System.out.println(Arrays.toString(parents));
-        System.out.println(Arrays.toString(rank));
-        System.out.println();
+//        System.out.printf("%d, %d\n", x, y);
+//        System.out.println(Arrays.toString(parents));
+//        System.out.println(Arrays.toString(rank));
+//        System.out.println();
         return true;
     }
 }
